@@ -1,0 +1,82 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+        <style>
+            body{
+                font-family: Arial,sans-serif;
+                background: linear-gradient(135deg, #667eea,#764ba2);
+                color: white;
+                text-align: center;
+                padding: 20px;
+            }
+            .container{
+                max-width: 400px;
+                margin: auto;
+                background: rgba(255, 255, 255, 0.1);
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow:  0px 4px 10px rgba(0,0,0,0.2);
+            }
+            input{
+                width:  90%;
+                padding: 10px;
+                margin: 10px 0;
+                border: none;
+                border-radius: 5px;
+                outline: none;
+            }
+            input[type="text"],input[type="emal"]{
+                background: rgba(255,255,255,0.8);
+            }
+            input[type="submit"]{
+                background: #ff9800;
+                color: white;
+                cursor: pointer;
+                transition: 0.3s;
+            }
+            input[type="submit"]:hover{
+                background: #e68900;
+            }
+            .link{
+                display: inline-block;
+                margin-top: 10px;
+                color: #ffeb3b;
+                text-decoration: none;
+                font-weight: bold;
+                transition: 0.3s
+            }
+            .link:hover{
+                text-decoration: underline;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container"
+         <h2>Student Registration</h2>
+            <form action="StudentServlet" method="post" onsubmit="return validateForm()">
+        Name: <input type="text" name="name" id="name" required /><br/>
+        Email: <input type="email" name="email" id="email" required /><br/>
+        Course: <input type="text" name="course" id="course"required /><br/>
+        <input type="submit" value="Register"/>
+    </form>
+    <br/>
+    <a href="StudentServlet" class="link">View Students</a>
+    </div>
+        <script>
+            function validateForm(){
+                
+                let name = document.getElementById("name").value;
+                let email = document.getElementById("email").value;
+                let course = document.getElementById("course").value;
+                if (name.trim()==="" || email.trim() ===""|| course.trim() ===""){
+                    alert("All Fields must be filled out");
+                    return false;
+                }
+                return true;
+            }
+            </script>
+    </body>
+</html>
